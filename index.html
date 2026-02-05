@@ -5,58 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeyLock Password Manager | Absolute Control</title>
     <style>
-        :root {
-            --kl-blue: #0056b3; 
-            --kl-dark: #333;
-            --kl-light: #f4f4f4;
-        }
+    :root {
+        --kl-blue: #0056b3; 
+        --kl-dark: #333;
+        --kl-light: #f4f4f4;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            color: var(--kl-dark);
-            background-color: #fff;
-        }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        color: var(--kl-dark);
+        background-color: #fff;
+    }
 
-        /* Fixed Navigation */
-        nav {
-            background: #fff;
-            padding: 0.5rem 5%; /* Reduced padding for a sleeker bar */
-            display: flex;
-            justify-content: space-between;
-            align-items: center; /* This keeps links centered relative to the logo */
-            border-bottom: 3px solid var(--kl-blue);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Added a subtle shadow for depth */
-        }
+    /* Compact Navigation */
+    nav {
+        background: #fff;
+        height: 80px; /* Forces a consistent height for the bar */
+        padding: 0 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Centers everything vertically */
+        border-bottom: 2px solid var(--kl-blue);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
 
-        /* Logo Constraint */
-        .logo img { 
-            height: 60px; /* This keeps the nav bar a reasonable size while using your high-res file */
-            width: auto;
-            display: block;
-        }
+    .logo-container {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
+    .logo-container img { 
+        max-height: 60px; /* Limits the logo so it doesn't stretch the bar */
+        width: auto;
+        display: block;
+        /* If your image has too much white space, 
+           you can use 'margin-top: -5px;' here to nudge it */
+    }
 
-        nav a {
-            text-decoration: none;
-            color: var(--kl-dark);
-            margin-left: 30px; /* Increased spacing */
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: color 0.2s;
-        }
+    .nav-links {
+        display: flex;
+        gap: 25px; /* Consistent spacing between links */
+    }
 
-        nav a:hover {
-            color: var(--kl-blue);
-        }
+    nav a {
+        text-decoration: none;
+        color: var(--kl-dark);
+        font-weight: 600;
+        font-size: 1rem;
+        transition: color 0.2s;
+        display: inline-block;
+    }
+
+    nav a:hover {
+        color: var(--kl-blue);
+    }
+
+    /* Rest of the CSS (Hero, Features, etc.) remains the same as previous version */
+</style>
+
+<nav>
+    <div class="logo-container">
+        <img src="KeyLock_logo_Light_240pix.png" alt="KeyLock Logo">
+    </div>
+    <div class="nav-links">
+        <a href="#download">Download</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="docs/">Docs</a>
+        <a href="#about">About</a>
+    </div>
+</nav>
 
         /* Hero Section */
         .hero {
