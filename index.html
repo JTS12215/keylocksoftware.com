@@ -5,109 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeyLock Password Manager | Absolute Control</title>
     <style>
-    :root {
-        --kl-blue: #0056b3; 
-        --kl-dark: #333;
-        --kl-light: #f4f4f4;
-    }
+        /* 1. BASE RESET */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        :root {
+            --kl-blue: #0056b3; 
+            --kl-dark: #333;
+            --kl-light: #f8f9fa;
+        }
 
-    /* Updated Navigation Style */
-    nav {
-        background: #fff;
-        height: 100px; /* Increased height to allow for a larger logo */
-        padding: 0 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center; /* This is the "magic" that aligns links to the center of the logo */
-        border-bottom: 2px solid var(--kl-blue);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
+        body {
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--kl-dark);
+            background-color: #fff;
+        }
 
-    .logo-container {
-        display: flex;
-        align-items: center;
-        height: 100%;
-    }
+        /* 2. NAVIGATION - Fixed & Centered */
+        nav {
+            background: #ffffff;
+            border-bottom: 3px solid var(--kl-blue);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 100px; /* Force a standard height */
+        }
 
-    .logo-container img { 
-        height: 85px; /* Bumped up from 60px - this should make it much clearer */
-        width: auto;
-        display: block;
-    }
+        .logo-container img {
+            height: 80px; /* Adjusted to balance the 100px nav */
+            width: auto;
+            display: block;
+        }
 
-    .nav-links {
-        display: flex;
-        gap: 35px; /* More generous spacing between links */
-        align-items: center; /* Ensures text is perfectly level */
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--kl-dark);
+            font-weight: 700;
+            margin-left: 25px;
+            font-size: 1.1rem;
+        }
 
-    nav a {
-        text-decoration: none;
-        color: var(--kl-dark);
-        font-weight: 600;
-        font-size: 1.1rem; /* Slightly larger text for readability */
-        transition: color 0.2s;
-        line-height: 1; /* Prevents text "jumping" */
-    }
+        .nav-links a:hover { color: var(--kl-blue); }
 
-    nav a:hover {
-        color: var(--kl-blue);
-    }
+        /* 3. HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 80px 10%;
+            background: linear-gradient(180deg, #fff 0%, var(--kl-light) 100%);
+        }
 
-    /* Optional: Small tweak to the Hero section to account for taller nav */
-    .hero {
-        padding: 120px 5% 80px 5%; 
-    }
-</style>
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: #000; }
+        
+        .badge {
+            display: inline-block;
+            background: var(--kl-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
 
-<nav>
-    <div class="logo-container">
-        <img src="KeyLock_logo_Light_240pix.png" alt="KeyLock Logo">
-    </div>
-    <div class="nav-links">
-        <a href="#download">Download</a>
-        <a href="#screenshots">Screenshots</a>
-        <a href="docs/">Docs</a>
-        <a href="#about">About</a>
-    </div>
-</nav>
+        .hero p { font-size: 1.25rem; max-width: 800px; margin: 0 auto 30px; color: #555; }
+
+        .btn {
+            display: inline-block;
+            background: var(--kl-blue);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* 4. FEATURES GRID - This fixes the body layout */
+        .features-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-box {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .feature-box h3 { color: var(--kl-blue); margin-bottom: 15px; font-size: 1.4rem; }
+
+        /* 5. FOOTER */
+        footer {
+            background: var(--kl-blue);
+            color: white;
+            text-align: center;
+            padding: 60px 5%;
+            margin-top: 40px;
+        }
+
+        footer h2 { margin-bottom: 20px; }
+        footer p { max-width: 600px; margin: 0 auto 10px; opacity: 0.9; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="KeyLock_logo_Light_240pix.png" alt="KeyLock Logo">
+        </div>
+        <div class="nav-links">
+            <a href="#download">Download</a>
+            <a href="#screenshots">Screenshots</a>
+            <a href="docs/">Docs</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
 
     <header class="hero">
         <span class="badge">Under Active Development</span>
         <h1>Your Identity. Your Jurisdiction.</h1>
-        <p style="max-width: 700px; margin: 20px auto; font-size: 1.2rem; color: #555;">
-            KeyLock is a local-first, professional-grade security tool designed to keep your passwords off the cloud and in your hands.
-        </p>
+        <p>KeyLock is a local-first, professional-grade security tool designed to keep your passwords off the cloud and in your hands.</p>
         <a href="https://github.com/JTS12215/keylocksoftware.com" class="btn">View Source on GitHub</a>
     </header>
 
-    <section class="features">
-        <div class="feature-card">
+    <section class="features-container">
+        <div class="feature-box">
             <h3>Fast & Lightweight</h3>
             <p>Built for performance. KeyLock skips the bloat, delivering a snappy experience that doesn't eat your system resources.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-box">
             <h3>Local-First Mentality</h3>
             <p>Your database stays with you. No corporation's cloud, no centralized honeypots, no waiting to be hacked.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-box">
             <h3>Fernet Encryption</h3>
             <p>Utilizing AES-128/256 Fernet encryption, ensuring your data remains a mystery to everyone but you.</p>
         </div>
     </section>
 
     <footer id="about">
-        <h3>About KeyLock</h3>
-        <p style="max-width: 600px; margin: 0 auto 20px;">
-            We believe that security shouldn't be a subscription service or a cloud-based risk. 
-            KeyLock was built for those who demand absolute sovereignty over their data.
-        </p>
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); width: 50px; margin: 30px auto;">
-        <p>&copy; 2026 KeyLock Password Manager.</p>
-        <p><small>Professional-Grade Local Security</small></p>
+        <h2>About KeyLock</h2>
+        <p>We believe that security shouldn't be a subscription service or a cloud-based risk. KeyLock was built for those who demand absolute sovereignty over their data.</p>
+        <p style="margin-top: 30px; font-size: 0.9rem;">&copy; 2026 KeyLock Password Manager | Professional-Grade Local Security</p>
     </footer>
 
 </body>
