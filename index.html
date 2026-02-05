@@ -1,31 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>KeyLock Password Manager - Open Source</title>
-    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyLock Password Manager | Absolute Control</title>
     <style>
-        body { font-family: system-ui; max-width: 800px; margin: 0 auto; padding: 2rem; }
-        .donate { background: #28a745; color: white; padding: 1rem; border-radius: 8px; text-align: center; }
+        :root {
+            --kl-blue: #0056b3; /* Replace with your Logo Blue */
+            --kl-dark: #333;
+            --kl-light: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--kl-dark);
+            background-color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--kl-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-weight: bold; font-size: 1.5rem; color: var(--kl-blue); }
+
+        nav a {
+            text-decoration: none;
+            color: var(--kl-dark);
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 5%;
+            text-align: center;
+            background: linear-gradient(180deg, #fff 0%, var(--kl-light) 100%);
+        }
+
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .badge {
+            background: var(--kl-blue);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 50px 5%;
+        }
+
+        .feature-card {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover { transform: translateY(-5px); border-color: var(--kl-blue); }
+        .feature-card h3 { color: var(--kl-blue); }
+
+        /* Footer */
+        footer {
+            background: var(--kl-blue);
+            color: white;
+            text-align: center;
+            padding: 40px 5%;
+            margin-top: 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--kl-blue);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>🔒 KeyLock Password Manager</h1>
-    <p><strong>Open-source, secure, donation-funded.</strong> Download the desktop app, manage passwords locally.</p>
-    
-    <h2>Features</h2>
-    <ul>
-        <li>Local encrypted storage</li>
-        <li>Fast search (3-letter prefix matching)</li>
-        <li>HTML export for backups</li>
-        <li>Auto-lock protection</li>
-    </ul>
-    
-    <div class="donate">
-        <h3>Support the project</h3>
-        <p>Donate via <a href="https://paypal.me/yourpaypal">PayPal</a></p>
-    </div>
-    
-    <p><em>GitHub: <a href="https://github.com/yourusername/keylock">Source code</a> | <a href="https://keylocksoftware.com/releases">Downloads</a></em></p>
+
+    <nav>
+        <div class="logo">KeyLock</div>
+        <div>
+            <a href="#download">Download</a>
+            <a href="#screenshots">Screenshots</a>
+            <a href="docs/">Docs</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <span class="badge">Under Active Development</span>
+        <h1>Your Identity. Your Jurisdiction.</h1>
+        <p>KeyLock is a local-first, professional-grade security tool designed to keep your passwords off the cloud and in your hands.</p>
+        <a href="https://github.com/JTS12215/keylocksoftware.com" class="btn">View Source on GitHub</a>
+    </header>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>Fast & Lightweight</h3>
+            <p>Built for performance. KeyLock skips the bloat, delivering a snappy experience that doesn't eat your system resources.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Local-First Mentality</h3>
+            <p>Your database stays with you. No corporation's cloud, no centralized honeypots, no waiting to be hacked.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Fernet Encryption</h3>
+            <p>Utilizing AES-128/256 Fernet encryption, ensuring your data remains a mystery to everyone but you.</p>
+        </div>
+    </section>
+
+    <footer id="about">
+        <p>&copy; 2026 KeyLock Password Manager. A professional-grade security project.</p>
+        <p><small>Hosted with care on GitHub Pages</small></p>
+    </footer>
+
 </body>
 </html>
 
