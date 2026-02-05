@@ -11,84 +11,55 @@
         --kl-light: #f4f4f4;
     }
 
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        color: var(--kl-dark);
-    }
-
-    /* Navigation - Strong Flex Structure */
+    /* Updated Navigation Style */
     nav {
-        background: #ffffff;
+        background: #fff;
+        height: 100px; /* Increased height to allow for a larger logo */
+        padding: 0 5%;
         display: flex;
         justify-content: space-between;
-        align-items: center; 
-        padding: 10px 5%;
-        border-bottom: 4px solid var(--kl-blue); /* Thicker line for better branding */
+        align-items: center; /* This is the "magic" that aligns links to the center of the logo */
+        border-bottom: 2px solid var(--kl-blue);
         position: sticky;
         top: 0;
         z-index: 1000;
-        min-height: 100px; /* Ensures the bar stays tall enough */
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
     .logo-container {
         display: flex;
         align-items: center;
+        height: 100%;
     }
 
     .logo-container img { 
-        height: 120px; /* Increased significantly to overcome white space in the file */
+        height: 85px; /* Bumped up from 60px - this should make it much clearer */
         width: auto;
         display: block;
-        margin: -10px 0; /* Pulls the logo slightly "over" the padding for a bigger look */
     }
 
     .nav-links {
         display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
+        gap: 35px; /* More generous spacing between links */
+        align-items: center; /* Ensures text is perfectly level */
     }
 
-    .nav-links a {
+    nav a {
         text-decoration: none;
         color: var(--kl-dark);
-        font-weight: 700;
-        font-size: 1.1rem;
-        margin-left: 30px;
+        font-weight: 600;
+        font-size: 1.1rem; /* Slightly larger text for readability */
         transition: color 0.2s;
+        line-height: 1; /* Prevents text "jumping" */
     }
 
-    .nav-links a:hover {
+    nav a:hover {
         color: var(--kl-blue);
     }
 
-    /* Hero Fix - Ensuring it doesn't overlap the nav */
+    /* Optional: Small tweak to the Hero section to account for taller nav */
     .hero {
-        padding: 60px 5%;
-        text-align: center;
-        background: linear-gradient(180deg, #fff 0%, var(--kl-light) 100%);
-        clear: both;
-    }
-
-    /* Grid Fix - Ensuring features stay in a row */
-    .features {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 40px 5%;
-    }
-
-    .feature-card {
-        flex: 1;
-        min-width: 280px;
-        max-width: 350px;
-        padding: 25px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        background: white;
+        padding: 120px 5% 80px 5%; 
     }
 </style>
 
