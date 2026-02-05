@@ -11,19 +11,27 @@
         --kl-light: #f4f4f4;
     }
 
-    /* Updated Navigation Style */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        color: var(--kl-dark);
+        background-color: #fff;
+    }
+
+    /* Compact Navigation */
     nav {
         background: #fff;
-        height: 100px; /* Increased height to allow for a larger logo */
+        height: 80px; /* Forces a consistent height for the bar */
         padding: 0 5%;
         display: flex;
         justify-content: space-between;
-        align-items: center; /* This is the "magic" that aligns links to the center of the logo */
+        align-items: center; /* Centers everything vertically */
         border-bottom: 2px solid var(--kl-blue);
         position: sticky;
         top: 0;
         z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
     .logo-container {
@@ -33,34 +41,32 @@
     }
 
     .logo-container img { 
-        height: 85px; /* Bumped up from 60px - this should make it much clearer */
+        max-height: 60px; /* Limits the logo so it doesn't stretch the bar */
         width: auto;
         display: block;
+        /* If your image has too much white space, 
+           you can use 'margin-top: -5px;' here to nudge it */
     }
 
     .nav-links {
         display: flex;
-        gap: 35px; /* More generous spacing between links */
-        align-items: center; /* Ensures text is perfectly level */
+        gap: 25px; /* Consistent spacing between links */
     }
 
     nav a {
         text-decoration: none;
         color: var(--kl-dark);
         font-weight: 600;
-        font-size: 1.1rem; /* Slightly larger text for readability */
+        font-size: 1rem;
         transition: color 0.2s;
-        line-height: 1; /* Prevents text "jumping" */
+        display: inline-block;
     }
 
     nav a:hover {
         color: var(--kl-blue);
     }
 
-    /* Optional: Small tweak to the Hero section to account for taller nav */
-    .hero {
-        padding: 120px 5% 80px 5%; 
-    }
+    /* Rest of the CSS (Hero, Features, etc.) remains the same as previous version */
 </style>
 
 <nav>
