@@ -22,11 +22,11 @@ Any Proof-of-Concept (PoC) code or screenshots.
 The version of KeyLock (e.g., v26.02.4) and the OS you are using.
 
 Our Response Timeline
-Acknowledgement: You will receive an automated or manual acknowledgement within 48 hours.
+Acknowledgement: You will receive an automated or manual acknowledgement.
 
-Status Update: We will provide a status update or request more information within 7 days.
+Status Update: We will provide a status update or may request more information.
 
-Resolution: We aim to patch critical vulnerabilities as quickly as possible, typically within 30 days.
+Resolution: We aim to patch critical vulnerabilities as quickly as possible and will update you accordingly.
 
 Guidelines for Researchers (Safe Harbor)
 To encourage responsible disclosure, we promise not to pursue legal action against researchers who:
