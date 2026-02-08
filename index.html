@@ -3,22 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KeyLock | Local-First Password Management</title>
+    <title>KeyLock | Absolute Control</title>
     <style>
-        /* CORE STYLES */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
             --kl-blue: #0056b3; 
             --kl-dark: #333;
             --kl-light: #f8f9fa;
+            --kl-accent: #ffcc00; /* For the "Coming Soon" vibe */
         }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
             color: var(--kl-dark);
+            background-color: #fff;
         }
 
-        /* NAVIGATION */
+        /* ANNOUNCEMENT BAR */
+        .dev-status-bar {
+            background: var(--kl-blue);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
         nav {
             background: #fff;
             border-bottom: 3px solid var(--kl-blue);
@@ -27,45 +38,33 @@
             align-items: center;
             padding: 10px 5%;
             height: 100px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .logo-container img { height: 80px; width: auto; }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--kl-dark);
-            font-weight: 700;
-            margin-left: 25px;
-        }
+        .nav-links a { text-decoration: none; color: var(--kl-dark); font-weight: 700; margin-left: 25px; }
 
-        /* HERO SECTION - Marketing Focus */
         .hero {
             text-align: center;
-            padding: 100px 10%;
+            padding: 80px 10%;
             background: linear-gradient(180deg, #fff 0%, var(--kl-light) 100%);
         }
-        .hero h1 { font-size: 3.5rem; color: #000; line-height: 1.2; }
-        .hero p { font-size: 1.4rem; color: #555; max-width: 800px; margin: 20px auto 40px; }
-
-        /* FEATURE PREVIEW CARDS */
-        .feature-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 50px 5%;
-            background: #fff;
+        .hero h1 { font-size: 3.5rem; color: #000; margin-bottom: 20px; }
+        
+        .badge-soon {
+            display: inline-block;
+            background: var(--kl-accent);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 400px;
-            padding: 40px;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .card h3 { color: var(--kl-blue); margin-bottom: 15px; }
 
+        .btn-container { margin-top: 30px; }
         .btn {
             display: inline-block;
             background: var(--kl-blue);
@@ -74,19 +73,33 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: 0.3s;
+            transition: transform 0.2s;
         }
-        .btn-outline {
-            background: transparent;
-            color: var(--kl-blue);
-            border: 2px solid var(--kl-blue);
-            margin-left: 10px;
+        .btn:hover { transform: translateY(-2px); }
+
+        .roadmap-preview {
+            padding: 60px 5%;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .roadmap-box {
+            background: var(--kl-light);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid var(--kl-blue);
+            text-align: left;
+            margin-top: 20px;
         }
 
-        footer { background: var(--kl-blue); color: white; text-align: center; padding: 40px; }
+        footer { background: var(--kl-blue); color: white; text-align: center; padding: 40px; margin-top: 50px; }
     </style>
 </head>
 <body>
+
+    <div class="dev-status-bar">
+        ⚠️ PROJECT UPDATE: v26.02 LATEST RELEASE NOW AVAILABLE
+    </div>
 
     <nav>
         <div class="logo-container">
@@ -102,25 +115,26 @@
     </nav>
 
     <header class="hero">
-        <span style="background: var(--kl-blue); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">SECURE & LOCAL</span>
-        <h1>Stop Trusting the Cloud <br>With Your Secrets.</h1>
-        <p>KeyLock is a professional-grade vault that keeps your passwords where they belong: on your machine, under your jurisdiction.</p>
-        <a href="download.html" class="btn">Download Now</a>
-        <a href="screenshots.html" class="btn btn-outline">See the Interface</a>
+        <div class="badge-soon">UNDER ACTIVE DEVELOPMENT | COMING SOON !!</div>
+        <h1>Your Identity. Your Jurisdiction.</h1>
+        <p>KeyLock is a local-first, professional-grade security tool designed to keep your passwords off the cloud and in your hands.</p>
+        
+        <div class="btn-container">
+            <a href="download.html" class="btn">Get KeyLock</a>
+            <a href="https://github.com/JTS12215/keylocksoftware.com" class="btn" style="background: #24292e; margin-left: 10px;">GitHub Source</a>
+        </div>
     </header>
 
-    <section class="feature-grid">
-        <div class="card">
-            <h3>No Cloud, No Honeypots</h3>
-            <p>Major breaches happen because data is centralized. KeyLock is local-first, making you a "ghost" to hackers targeting cloud providers.</p>
-        </div>
-        <div class="card">
-            <h3>Zero-Knowledge Security</h3>
-            <p>Your master password is the only key. We don't have a "reset" button because we never have access to your data. Absolute privacy.</p>
-        </div>
-        <div class="card">
-            <h3>Fernet (AES) Encryption</h3>
-            <p>Your vault is locked behind industry-standard encryption, ensuring your data remains unreadable to anyone but you.</p>
+    <section class="roadmap-preview">
+        <h2 style="color: var(--kl-blue);">Project Status</h2>
+        <div class="roadmap-box">
+            <h4>🚀 Current Focus: Desktop Performance</h4>
+            <p>We are currently optimizing the Fernet encryption engine for even faster vault unlocking. Expect a major UI refresh in the coming weeks!</p>
+            <ul style="margin-left: 20px; margin-top: 10px; font-size: 0.95rem;">
+                <li>✅ AES-256 Vault Architecture (Complete)</li>
+                <li>✅ Multi-Browser Import Tool (Complete)</li>
+                <li>⏳ Mobile Companion App (Planned for Late 2026)</li>
+            </ul>
         </div>
     </section>
 
