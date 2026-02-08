@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Screenshots | KeyLock Password Manager</title>
+    <title>KeyLock | Local-First Password Management</title>
     <style>
-        /* Keep this CSS identical to your index.html so the transition is seamless */
+        /* CORE STYLES */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
             --kl-blue: #0056b3; 
@@ -13,13 +13,14 @@
             --kl-light: #f8f9fa;
         }
         body {
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
             color: var(--kl-dark);
-            background-color: #fff;
         }
+
+        /* NAVIGATION */
         nav {
-            background: #ffffff;
+            background: #fff;
             border-bottom: 3px solid var(--kl-blue);
             display: flex;
             justify-content: space-between;
@@ -27,58 +28,73 @@
             padding: 10px 5%;
             height: 100px;
         }
-        .logo-container img { height: 80px; width: auto; display: block; }
+        .logo-container img { height: 80px; width: auto; }
         .nav-links a {
             text-decoration: none;
             color: var(--kl-dark);
             font-weight: 700;
             margin-left: 25px;
-            font-size: 1.1rem;
         }
-        .nav-links a:hover { color: var(--kl-blue); }
 
-        .gallery-container {
+        /* HERO SECTION - Marketing Focus */
+        .hero {
+            text-align: center;
+            padding: 100px 10%;
+            background: linear-gradient(180deg, #fff 0%, var(--kl-light) 100%);
+        }
+        .hero h1 { font-size: 3.5rem; color: #000; line-height: 1.2; }
+        .hero p { font-size: 1.4rem; color: #555; max-width: 800px; margin: 20px auto 40px; }
+
+        /* FEATURE PREVIEW CARDS */
+        .feature-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            padding: 60px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
+            gap: 20px;
+            padding: 50px 5%;
+            background: #fff;
         }
-        .gallery-item {
+        .card {
             flex: 1;
-            min-width: 400px; /* Adjust based on your screenshot sizes */
-            max-width: 600px;
+            min-width: 300px;
+            max-width: 400px;
+            padding: 40px;
+            border: 1px solid #eee;
+            border-radius: 12px;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        .gallery-item img {
-            width: 100%;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .gallery-item p { margin-top: 15px; font-weight: 600; color: #555; }
+        .card h3 { color: var(--kl-blue); margin-bottom: 15px; }
 
-        footer {
+        .btn {
+            display: inline-block;
             background: var(--kl-blue);
             color: white;
-            text-align: center;
-            padding: 60px 5%;
-            margin-top: 40px;
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
         }
-        footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .btn-outline {
+            background: transparent;
+            color: var(--kl-blue);
+            border: 2px solid var(--kl-blue);
+            margin-left: 10px;
+        }
+
+        footer { background: var(--kl-blue); color: white; text-align: center; padding: 40px; }
     </style>
 </head>
 <body>
-    
+
     <nav>
         <div class="logo-container">
-            <a href="index.html"><img src="KeyLock_logo_Light_240pix.png" alt="KeyLock Logo"></a>
+            <img src="KeyLock_logo_Light_240pix.png" alt="KeyLock Logo">
         </div>
         <div class="nav-links">
             <a href="download.html">Download</a>
-            <a href="screenshots.html" style="color: var(--kl-blue);">Screenshots</a>
+            <a href="screenshots.html">Screenshots</a>
             <a href="docs/index.html">Docs</a>
             <a href="about.html">About</a>
             <a href="donate.html">Donate</a>
@@ -86,53 +102,35 @@
     </nav>
 
     <header class="hero">
-        <span class="badge">Under Active Development</span>
-        <h1>Your Identity. Your Jurisdiction.</h1>
-        <p>KeyLock is a local-first, professional-grade security tool designed to keep your passwords off the cloud and in your hands.</p>
-        <a href="https://github.com/JTS12215/keylocksoftware.com" class="btn">View Source on GitHub</a>
+        <span style="background: var(--kl-blue); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">SECURE & LOCAL</span>
+        <h1>Stop Trusting the Cloud <br>With Your Secrets.</h1>
+        <p>KeyLock is a professional-grade vault that keeps your passwords where they belong: on your machine, under your jurisdiction.</p>
+        <a href="download.html" class="btn">Download Now</a>
+        <a href="screenshots.html" class="btn btn-outline">See the Interface</a>
     </header>
-    
-    <section class="features-container">
-        <div class="feature-box">
-            <h3>Fast & Lightweight</h3>
-            <p>Built for performance. KeyLock skips the bloat, delivering a snappy experience that doesn't eat your system resources.</p>
+
+    <section class="feature-grid">
+        <div class="card">
+            <h3>No Cloud, No Honeypots</h3>
+            <p>Major breaches happen because data is centralized. KeyLock is local-first, making you a "ghost" to hackers targeting cloud providers.</p>
         </div>
-        <div class="feature-box">
-            <h3>Local-First Mentality</h3>
-            <p>Your database stays with you. No corporation's cloud, no centralized honeypots, no waiting to be hacked.</p>
+        <div class="card">
+            <h3>Zero-Knowledge Security</h3>
+            <p>Your master password is the only key. We don't have a "reset" button because we never have access to your data. Absolute privacy.</p>
         </div>
-        <div class="feature-box">
-            <h3>Fernet Encryption</h3>
-            <p>Utilizing AES-128/256 Fernet encryption, ensuring your data remains a mystery to everyone but you.</p>
+        <div class="card">
+            <h3>Fernet (AES) Encryption</h3>
+            <p>Your vault is locked behind industry-standard encryption, ensuring your data remains unreadable to anyone but you.</p>
         </div>
     </section>
 
-    <section id="download" style="text-align: center; padding: 100px 5%; background-color: #fff;">
-        <h2 style="color: var(--kl-blue); margin-bottom: 20px;">Download KeyLock</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 30px; color: #555;">Take control of your digital sovereignty today.</p>
-        <a href="https://github.com/JTS12215/keylocksoftware.com/tree/main/releases" class="btn" style="padding: 20px 40px; font-size: 1.2rem;">Get the Latest Release</a>
-    </section>
-
-    <section id="Donate" style="text-align: center; padding: 100px 5%; background-color: var(--kl-light); border-top: 1px solid #eee;">
-        <h2 style="color: var(--kl-blue); margin-bottom: 20px;">Support Open Source</h2>
-        <p style="margin-bottom: 30px;">KeyLock is built and maintained by independent developers. Your support keeps the project alive.</p>
-        <a href="https://github.com/sponsors/JTS12215" class="btn" style="background-color: #28a745; padding: 15px 30px;">Donate via GitHub Sponsors</a>
-    </section>
-    
-<footer id="about">
-    <h2>About KeyLock</h2>
-    <p>We believe that security shouldn't be a subscription service or a cloud-based risk. KeyLock was built for those who demand absolute sovereignty over their data.</p>
-
-    <div style="margin-top: 20px;">
-        <a href="docs/Legal_Compliance.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; margin: 0 10px;">Privacy & Compliance</a>
-        <span style="color: rgba(255,255,255,0.4);">|</span>
-        <a href="https://github.com/JTS12215/keylocksoftware.com" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; margin: 0 10px;">GitHub Source</a>
-    </div>
-
-    <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.7;">
-        &copy; 2026 KeyLock Password Manager | Professional-Grade Local Security
-    </p>
-</footer>
+    <footer>
+        <p>&copy; 2026 KeyLock Password Manager</p>
+        <div style="margin-top: 10px; font-size: 0.9rem;">
+            <a href="docs/Legal_Compliance.html" style="color: #fff;">Legal</a> | 
+            <a href="https://github.com/JTS12215/keylocksoftware.com" style="color: #fff;">Source Code</a>
+        </div>
+    </footer>
 
 </body>
 </html>
