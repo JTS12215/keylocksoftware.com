@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [26.02.6] - 2026-02-23
+
+### Added
+- **Branding**
+  - **Custom Application Icon:** Replaced the generic Windows "Diskette" icon with the official KeyLock branding in the Task Manager Startup tab.
+
+  - **Title Bar Branding:** Added the KeyLock logo to the main window title bar for a consistent user experience.
+
+  - **Unified Asset Management:** Implemented a new resource_path utility to ensure logos and icons load correctly when running as a standalone .exe.
+
+### Changed
+- Added a scroll feature for the Edit/Entry Form.
+- Edit/Entry form - pressing the Tab key now tabs through every field.
+- Added KeyLock Logo for exe file and title bar.
+
+### Fixed
+- Fixed Launch on Startup Logic for Windows Task Manager.
+- Fixed issue where Password Field masking dots were disappearing when switching between light and dark theme modes.
+- Fixed issue where table field width is remembered on application close.
+- Pressing Show Password will reveal masked password correctly. 
+- Password table field will expand and contract to show longer passwords.
+- Fixed issue where pressing Copy User or Copy Password for a selected record and after auto-clear clipboard cleared the record was no longer showing selected.
+
+  
 ## [26.02.5] - 2026-02-16
 
 ### Added
