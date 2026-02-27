@@ -6,15 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeyLock | Local-First Password Management</title>
     <style>
-        /* CORE STYLES */
+        /* 1. CORE STYLES (Matches Download Page) */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
         :root {
             --kl-blue: #0056b3;
             --kl-dark: #333;
             --kl-light: #f8f9fa;
         }
-
         body {
             font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
             line-height: 1.6;
@@ -22,7 +20,7 @@
             background-color: #fff;
         }
 
-        /* NAVIGATION - Shared across all pages */
+        /* 2. NAVIGATION (Identical to Download Page) */
         nav {
             background: #ffffff;
             border-bottom: 3px solid var(--kl-blue);
@@ -32,13 +30,11 @@
             padding: 10px 5%;
             height: 100px;
         }
-
         .logo-container img {
             height: 80px;
             width: auto;
             display: block;
         }
-
         .nav-links a {
             text-decoration: none;
             color: var(--kl-dark);
@@ -46,33 +42,21 @@
             margin-left: 25px;
             font-size: 1.1rem;
         }
-
         .nav-links a:hover { color: var(--kl-blue); }
 
-        /* HERO SECTION */
+        /* 3. HERO & BUTTONS */
         .hero {
             text-align: center;
             padding: 100px 10%;
             background: linear-gradient(180deg, #fff 0%, var(--kl-light) 100%);
         }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            color: #000;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            color: #555;
-            max-width: 800px;
-            margin: 20px auto 40px;
-        }
+        .hero h1 { font-size: 3.5rem; color: #000; line-height: 1.2; }
+        .hero p { font-size: 1.4rem; color: #555; max-width: 800px; margin: 20px auto 40px; }
 
         .btn {
             display: inline-block;
             background: var(--kl-blue);
-            color: white;
+            color: white !important;
             padding: 15px 35px;
             border-radius: 5px;
             text-decoration: none;
@@ -80,23 +64,20 @@
             transition: 0.3s;
             margin: 10px;
         }
-
         .btn-outline {
             background: transparent;
-            color: var(--kl-blue);
+            color: var(--kl-blue) !important;
             border: 2px solid var(--kl-blue);
         }
 
-        /* FEATURE GRID */
+        /* 4. FEATURE GRID */
         .feature-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
             padding: 50px 5%;
-            background: #fff;
         }
-
         .card {
             flex: 1;
             min-width: 300px;
@@ -108,71 +89,27 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .card h3 { color: var(--kl-blue); margin-bottom: 15px; }
+        /* 5. MOBILE FIXES (Only for Hero/Buttons) */
+        @media (max-width: 768px) {
+            /* Keep Header natural like the Download page */
+            nav { height: auto; padding: 15px 5%; flex-wrap: wrap; }
+            
+            /* Fix the Hero Buttons Stacking */
+            .hero { padding: 50px 5%; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero .btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+            .btn-outline { margin-left: 0 !important; }
+        }
 
         footer {
             background: var(--kl-blue);
             color: white;
             text-align: center;
             padding: 40px;
-        }
-
-        /* MOBILE RESPONSIVE SECTION */
-        @media (max-width: 768px) {
-            nav {
-                display: flex !important;
-                flex-direction: row !important;
-                justify-content: space-between !important;
-                align-items: flex-start !important; /* Pins logo and nav to the top */
-                height: auto !important;
-                padding: 20px 5% !important; /* Adjusts vertical space around logo */
-            }
-
-            .logo-container {
-                flex: 0 0 auto !important;
-            }
-
-            .logo-container img {
-                height: 80px !important;
-                width: auto !important;
-            }
-
-            /* This section creates the "D under D" alignment */
-            .nav-links {
-                display: grid !important;
-                grid-template-columns: auto auto; /* Creates two distinct columns */
-                gap: 10px 20px; /* Vertical gap of 10px, Horizontal of 20px */
-                margin-top: 5px !important;
-                justify-items: start; /* Aligns the start of the words */
-            }
-
-            .nav-links a {
-                margin: 0 !important; /* Clears old margins that break the grid */
-                font-size: 1.1rem !important;
-                line-height: 1;
-                white-space: nowrap;
-            }
-
-            /* Specific positioning to match your request */
-            /* Row 1: Download | Screenshots */
-            /* Row 2: Docs | About | Donate */
-            
-            /* If you want 3 on the bottom, we adjust the grid flow */
-            .nav-links {
-                grid-template-areas: 
-                    "dl ss"
-                    "dc ab"
-                    "dn ."; /* Donate starts under the second column area */
-            }
-
-            /* HERO BUTTONS */
-            .hero { padding: 40px 5% !important; }
-            .hero h1 { font-size: 2.2rem !important; }
-            .btn {
-                display: block !important;
-                width: 100% !important;
-                margin: 10px 0 !important;
-            }
         }
     </style>
 </head>
