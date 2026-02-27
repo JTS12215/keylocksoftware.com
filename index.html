@@ -117,40 +117,61 @@
             padding: 40px;
         }
 
-        /* MOBILE RESPONSIVE - Matching Download Page Geometry */
+        /* MOBILE RESPONSIVE SECTION */
         @media (max-width: 768px) {
             nav {
-                height: auto;
-                padding: 15px 5%;
-                flex-wrap: wrap; /* Allows wrapping like image0 */
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: flex-start !important; /* Pins logo and nav to the top */
+                height: auto !important;
+                padding: 20px 5% !important; /* Adjusts vertical space around logo */
             }
 
             .logo-container {
-                flex: 1;
-                text-align: left;
+                flex: 0 0 auto !important;
             }
 
+            .logo-container img {
+                height: 80px !important;
+                width: auto !important;
+            }
+
+            /* This section creates the "D under D" alignment */
             .nav-links {
-                flex: 2;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: flex-end;
-                margin-top: 10px;
+                display: grid !important;
+                grid-template-columns: auto auto; /* Creates two distinct columns */
+                gap: 10px 20px; /* Vertical gap of 10px, Horizontal of 20px */
+                margin-top: 5px !important;
+                justify-items: start; /* Aligns the start of the words */
             }
 
             .nav-links a {
-                margin-left: 15px;
-                margin-bottom: 5px;
-                font-size: 1.05rem;
+                margin: 0 !important; /* Clears old margins that break the grid */
+                font-size: 1.1rem !important;
+                line-height: 1;
+                white-space: nowrap;
             }
 
-            .hero { padding: 60px 5%; }
-            .hero h1 { font-size: 2.2rem; }
+            /* Specific positioning to match your request */
+            /* Row 1: Download | Screenshots */
+            /* Row 2: Docs | About | Donate */
+            
+            /* If you want 3 on the bottom, we adjust the grid flow */
+            .nav-links {
+                grid-template-areas: 
+                    "dl ss"
+                    "dc ab"
+                    "dn ."; /* Donate starts under the second column area */
+            }
 
+            /* HERO BUTTONS */
+            .hero { padding: 40px 5% !important; }
+            .hero h1 { font-size: 2.2rem !important; }
             .btn {
-                display: block;
-                margin: 10px 0;
-                width: 100%;
+                display: block !important;
+                width: 100% !important;
+                margin: 10px 0 !important;
             }
         }
     </style>
