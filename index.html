@@ -105,7 +105,7 @@
 
         /* ... Keep your existing CORE STYLES, NAV, HERO, and FEATURE GRID as they are ... */
 
-        /* MOBILE RESPONSIVE SECTION */
+        /* MOBILE RESPONSIVE SECTION - index.html */
         @media (max-width: 768px) {
             nav {
                 display: flex !important;
@@ -114,30 +114,32 @@
                 align-items: center !important;
                 height: auto !important;
                 padding: 10px 5% !important;
+                flex-wrap: wrap !important; /* Allows the whole nav to expand if needed */
             }
 
             .logo-container {
-                display: block !important;
-                flex: 0 0 auto !important; /* Prevents it from shrinking */
+                flex: 0 0 auto !important;
             }
 
             .logo-container img {
-                height: 80px !important; /* Force same size as desktop/download page */
+                height: 80px !important; 
                 width: auto !important;
             }
 
             .nav-links {
                 display: flex !important;
                 flex-direction: row !important;
-                margin-top: 0 !important;
+                flex-wrap: wrap !important; /* THIS allows the links to drop to a second line */
                 justify-content: flex-end !important;
+                margin-top: 10px !important;
                 flex: 1 !important;
+                gap: 10px; /* Provides consistent spacing between wrapped buttons */
             }
 
             .nav-links a {
                 margin-left: 15px !important;
-                font-size: 1.1rem !important; /* Same size as Download page */
-                white-space: nowrap;
+                font-size: 1.1rem !important;
+                /* white-space: nowrap;  <-- REMOVE OR COMMENT THIS OUT */
             }
 
             /* Fixes the Hero Buttons touching */
