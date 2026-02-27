@@ -94,6 +94,9 @@
             margin-bottom: 15px;
         }
 
+        /* ... Keep your existing CORE STYLES, NAV, HERO, and FEATURE GRID as they are ... */
+
+        /* Updated Button Styles to handle spacing */
         .btn {
             display: inline-block;
             background: var(--kl-blue);
@@ -103,13 +106,46 @@
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
+            margin: 5px; /* Added slight margin for all views */
         }
 
         .btn-outline {
             background: transparent;
             color: var(--kl-blue);
             border: 2px solid var(--kl-blue);
-            margin-left: 10px;
+        }
+
+        /* NEW MOBILE RESPONSIVE SECTION */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+            }
+
+            .nav-links a {
+                margin: 0 10px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem; /* Shorter text for small screens */
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                display: block; /* Stack buttons vertically */
+                width: 100%;
+                margin: 10px 0; /* Add 10px gap between stacked buttons */
+                margin-left: 0 !important; /* Force remove the desktop margin-left */
+            }
         }
 
         footer {
