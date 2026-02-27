@@ -6,92 +6,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeyLock | Local-First Password Management</title>
     <style>
-    /* CORE STYLES */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-        --kl-blue: #0056b3;
-        --kl-dark: #333;
-        --kl-light: #f8f9fa;
-    }
-    body {
-        font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-        line-height: 1.6;
-        color: var(--kl-dark);
-        background-color: #fff;
-    }
-
-    /* NAVIGATION - THIS SHOULD NOW MATCH YOUR DOWNLOAD PAGE EXACTLY */
-    nav {
-        background: #ffffff;
-        border-bottom: 3px solid var(--kl-blue);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 5%;
-        height: 100px;
-    }
-    .logo-container img {
-        height: 80px;
-        width: auto;
-        display: block;
-    }
-    .nav-links a {
-        text-decoration: none;
-        color: var(--kl-dark);
-        font-weight: 700;
-        margin-left: 25px;
-        font-size: 1.1rem;
-    }
-
-    /* HERO SECTION */
-    .hero {
-        text-align: center;
-        padding: 100px 10%;
-        background: linear-gradient(180deg, #fff 0%, var(--kl-light) 100%);
-    }
-    .hero h1 { font-size: 3.5rem; color: #000; line-height: 1.2; }
-    .hero p { font-size: 1.4rem; color: #555; max-width: 800px; margin: 20px auto 40px; }
-
-    /* THE BUTTONS (Desktop View) */
-    .btn {
-        display: inline-block;
-        background: var(--kl-blue);
-        color: white !important;
-        padding: 15px 35px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 10px;
-    }
-    .btn-outline {
-        background: transparent;
-        color: var(--kl-blue) !important;
-        border: 2px solid var(--kl-blue);
-    }
-
-    /* MOBILE RESPONSIVE - HEADER RESET ONLY */
-    @media (max-width: 768px) {
-        nav {
-            height: auto;
-            padding: 15px 5%;
-            /* Removed flex-direction: column to stop it from stacking */
+        /* CORE STYLES - Exact match for all pages */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        
-        /* This keeps the logo and links side-by-side on mobile */
-        .nav-links {
+
+        :root {
+            --kl-blue: #0056b3;
+            --kl-dark: #333;
+            --kl-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--kl-dark);
+            background-color: #fff;
+        }
+
+        /* NAVIGATION - Shared Structure */
+        nav {
+            background: #ffffff;
+            border-bottom: 3px solid var(--kl-blue);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            height: 100px;
+        }
+
+        .logo-container img {
+            height: 80px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--kl-dark);
+            font-weight: 700;
+            margin-left: 25px;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--kl-blue);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 100px 10%;
+            background: linear-gradient(180deg, #fff 0%, var(--kl-light) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #555;
+            max-width: 800px;
+            margin: 20px auto 40px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            background: var(--kl-blue);
+            color: white !important;
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--kl-blue) !important;
+            border: 2px solid var(--kl-blue);
+        }
+
+        /* FEATURE GRID */
+        .feature-grid {
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-end;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 5%;
         }
 
-        /* We are NOT adding the button stacking fix yet to keep the header clean */
-    }
+        .card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            padding: 40px;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
 
-    /* FEATURE GRID & FOOTER */
-    .feature-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 50px 5%; }
-    .card { flex: 1; min-width: 300px; max-width: 400px; padding: 40px; border: 1px solid #eee; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
-    footer { background: var(--kl-blue); color: white; text-align: center; padding: 40px; }
-</style>
+        footer {
+            background: var(--kl-blue);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+    </style>
 </head>
 
 <body>
