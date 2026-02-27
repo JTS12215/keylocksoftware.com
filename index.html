@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeyLock | Local-First Password Management</title>
     <style>
-        /* 1. CORE STYLES (Matches Download Page) */
+        /* CORE STYLES */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
             --kl-blue: #0056b3;
@@ -20,13 +20,13 @@
             background-color: #fff;
         }
 
-        /* 2. NAVIGATION (Identical to Download Page) */
+        /* NAVIGATION - Shared Structure */
         nav {
             background: #ffffff;
             border-bottom: 3px solid var(--kl-blue);
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center; /* This keeps them on the same line */
             padding: 10px 5%;
             height: 100px;
         }
@@ -42,9 +42,8 @@
             margin-left: 25px;
             font-size: 1.1rem;
         }
-        .nav-links a:hover { color: var(--kl-blue); }
 
-        /* 3. HERO & BUTTONS */
+        /* HERO SECTION */
         .hero {
             text-align: center;
             padding: 100px 10%;
@@ -61,7 +60,6 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: 0.3s;
             margin: 10px;
         }
         .btn-outline {
@@ -70,32 +68,31 @@
             border: 2px solid var(--kl-blue);
         }
 
-        /* 4. FEATURE GRID */
-        .feature-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 50px 5%;
-        }
-        .card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 400px;
-            padding: 40px;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        /* 5. MOBILE FIXES (Only for Hero/Buttons) */
+        /* MOBILE RESPONSIVE - The Final Polish */
         @media (max-width: 768px) {
-            /* Keep Header natural like the Download page */
-            nav { height: auto; padding: 15px 5%; flex-wrap: wrap; }
+            nav {
+                height: auto !important; /* Let it grow to fit content */
+                padding: 15px 5% !important;
+                flex-wrap: nowrap; /* Forces logo and links to stay side-by-side */
+            }
             
-            /* Fix the Hero Buttons Stacking */
-            .hero { padding: 50px 5%; }
+            .logo-container {
+                flex-shrink: 0; /* Prevents the shield from getting tiny */
+            }
+
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap; /* Allows links to wrap to a 2nd line if screen is tiny */
+                justify-content: flex-end;
+            }
+
+            .nav-links a {
+                margin-left: 15px;
+                font-size: 1rem; /* Slightly smaller to ensure same-line fit */
+            }
+
+            /* Fixes the big blue buttons touching */
+            .hero { padding: 60px 5%; }
             .hero h1 { font-size: 2.2rem; }
             .hero .btn {
                 display: block;
@@ -105,12 +102,10 @@
             .btn-outline { margin-left: 0 !important; }
         }
 
-        footer {
-            background: var(--kl-blue);
-            color: white;
-            text-align: center;
-            padding: 40px;
-        }
+        /* FEATURE GRID & FOOTER (Keep your existing styles here) */
+        .feature-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 50px 5%; }
+        .card { flex: 1; min-width: 300px; max-width: 400px; padding: 40px; border: 1px solid #eee; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
+        footer { background: var(--kl-blue); color: white; text-align: center; padding: 40px; }
     </style>
 </head>
 
