@@ -105,16 +105,17 @@
 
         /* ... Keep your existing CORE STYLES, NAV, HERO, and FEATURE GRID as they are ... */
 
-        /* MOBILE RESPONSIVE SECTION - index.html */
+        /* MOBILE RESPONSIVE SECTION */
         @media (max-width: 768px) {
+            /* 1. Header & Navigation Geometry */
             nav {
                 display: flex !important;
                 flex-direction: row !important;
                 justify-content: space-between !important;
-                align-items: center !important;
+                align-items: flex-start !important; /* Matches the top-alignment in image0 */
                 height: auto !important;
-                padding: 10px 5% !important;
-                flex-wrap: wrap !important; /* Allows the whole nav to expand if needed */
+                padding: 15px 5% !important;
+                flex-wrap: nowrap !important; 
             }
 
             .logo-container {
@@ -129,36 +130,44 @@
             .nav-links {
                 display: flex !important;
                 flex-direction: row !important;
-                flex-wrap: wrap !important; /* THIS allows the links to drop to a second line */
+                flex-wrap: wrap !important; /* This creates the 2-line look from your screenshot */
                 justify-content: flex-end !important;
-                margin-top: 10px !important;
-                flex: 1 !important;
-                gap: 10px; /* Provides consistent spacing between wrapped buttons */
+                margin-top: 5px !important;
+                gap: 5px 15px; /* Adds a gap between lines and links */
+                text-align: right;
             }
 
             .nav-links a {
-                margin-left: 15px !important;
+                margin-left: 0 !important; /* Handled by gap now */
                 font-size: 1.1rem !important;
-                /* white-space: nowrap;  <-- REMOVE OR COMMENT THIS OUT */
+                line-height: 1.4;
             }
 
-            /* Fixes the Hero Buttons touching */
+            /* 2. Hero Section Adjustments */
             .hero {
-                padding: 60px 5%;
+                padding: 60px 5% !important;
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.2rem !important;
             }
 
-            .btn {
+            /* 3. Restoring the Big Blue Buttons */
+            .hero .btn {
                 display: block !important;
                 width: 100% !important;
-                margin: 10px 0 !important;
-                margin-left: 0 !important;
+                margin: 15px 0 !important;
+                background: var(--kl-blue) !important; /* Restores blue color */
+                color: white !important; /* Restores white text */
+                padding: 15px 20px !important;
+                text-align: center;
+                border-radius: 5px;
             }
 
-            .btn-outline {
+            .hero .btn-outline {
+                background: transparent !important;
+                color: var(--kl-blue) !important;
+                border: 2px solid var(--kl-blue) !important;
                 margin-left: 0 !important;
             }
         }
