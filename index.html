@@ -20,14 +20,15 @@
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: var(--kl-dark);
+            background-color: #fff;
         }
 
         /* NAVIGATION */
         nav {
-            background: #fff;
+            background: #ffffff;
             border-bottom: 3px solid var(--kl-blue);
             display: flex;
             justify-content: space-between;
@@ -39,6 +40,7 @@
         .logo-container img {
             height: 80px;
             width: auto;
+            display: block;
         }
 
         .nav-links a {
@@ -46,7 +48,14 @@
             color: var(--kl-dark);
             font-weight: 700;
             margin-left: 25px;
+            font-size: 1.1rem;
         }
+
+        .nav-links a:hover {
+            color: var(--kl-blue);
+        }
+
+        
 
         /* HERO SECTION - Marketing Focus */
         .hero {
