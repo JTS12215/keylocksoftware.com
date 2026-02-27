@@ -105,75 +105,57 @@
 
         /* ... Keep your existing CORE STYLES, NAV, HERO, and FEATURE GRID as they are ... */
 
-        /* Updated Button Styles to handle spacing */
-        .btn {
-            display: inline-block;
-            background: var(--kl-blue);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            margin: 5px; /* Added slight margin for all views */
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--kl-blue);
-            border: 2px solid var(--kl-blue);
-        }
-
-        /* NEW MOBILE RESPONSIVE SECTION */
+        /* MOBILE RESPONSIVE SECTION */
         @media (max-width: 768px) {
             nav {
-                flex-direction: row !important; /* Force side-by-side */
-                justify-content: space-between;
-                align-items: center;
-                height: auto;
-                padding: 10px 5%;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                height: auto !important;
+                padding: 10px 5% !important;
             }
 
             .logo-container {
-                flex-shrink: 0; /* Prevents the logo from getting squeezed/shrunk */
+                display: block !important;
+                flex: 0 0 auto !important; /* Prevents it from shrinking */
             }
 
             .logo-container img {
-                height: 70px; /* Matching the size seen on your download page */
-                width: auto;
-                display: block;
+                height: 80px !important; /* Force same size as desktop/download page */
+                width: auto !important;
             }
 
             .nav-links {
-                margin-top: 0;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: flex-end;
-                gap: 10px; /* Gives a small, consistent gap between links */
+                display: flex !important;
+                flex-direction: row !important;
+                margin-top: 0 !important;
+                justify-content: flex-end !important;
+                flex: 1 !important;
             }
 
             .nav-links a {
-                margin-left: 10px;
-                font-size: 1.05rem; /* Matches the visual weight of the Download page */
-                white-space: nowrap; /* Prevents single words from breaking */
+                margin-left: 15px !important;
+                font-size: 1.1rem !important; /* Same size as Download page */
+                white-space: nowrap;
             }
 
-            /* HERO SECTION TWEAKS */
+            /* Fixes the Hero Buttons touching */
             .hero {
-                padding: 60px 5%; /* Reduces excessive padding on mobile */
+                padding: 60px 5%;
             }
 
             .hero h1 {
                 font-size: 2.2rem;
             }
 
-            /* Keeps your big blue buttons stacked correctly */
             .btn {
-                display: block; 
-                width: 100%;
+                display: block !important;
+                width: 100% !important;
                 margin: 10px 0 !important;
+                margin-left: 0 !important;
             }
-            
+
             .btn-outline {
                 margin-left: 0 !important;
             }
