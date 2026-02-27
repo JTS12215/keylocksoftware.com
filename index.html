@@ -127,28 +127,30 @@
         /* NEW MOBILE RESPONSIVE SECTION */
         @media (max-width: 768px) {
             nav {
-                flex-direction: row; /* Keep Logo and Links on one line if possible */
-                flex-wrap: wrap;    /* Allow Links to move below Logo if screen is tiny */
-                height: auto; 
-                padding: 15px 5%;
-                justify-content: space-between; /* Pushes Logo left, Links right */
+                flex-direction: row; /* Force them to stay side-by-side */
+                justify-content: space-between;
+                height: auto;
+                padding: 10px 5%;
+                align-items: center; /* Keeps logo and text vertically centered */
             }
 
             .logo-container img {
-                height: 80px; /* Restored to original size */
-                margin-bottom: 0;
+                height: 60px; /* Slightly smaller for mobile to fit on one line */
+                width: auto;
             }
 
             .nav-links {
-                margin-top: 15px;
-                width: 100%; /* Forces links to a new line below the logo on small phones */
-                text-align: left; /* Aligns buttons to the left */
+                margin-top: 0;
+                width: auto; /* Remove the 100% width so it doesn't drop down */
+                display: flex;
+                flex-wrap: wrap; 
+                justify-content: flex-end;
             }
 
             .nav-links a {
-                margin: 5px 15px 5px 0; /* Space on the right of links */
-                font-size: 1.1rem;
-                display: inline-block;
+                margin-left: 15px; /* Tighter spacing for mobile phones */
+                margin-right: 0;
+                font-size: 1.0rem; /* Slightly smaller to ensure fit on one line */
             }
 
             .hero h1 {
@@ -159,7 +161,7 @@
                 font-size: 1.1rem;
             }
 
-            /* This keeps your hero buttons stacked and spaced */
+            /* Keep hero buttons stacked for easy thumb tapping */
             .btn {
                 display: block; 
                 width: 100%;
