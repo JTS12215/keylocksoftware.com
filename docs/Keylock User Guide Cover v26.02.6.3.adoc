@@ -1,0 +1,404 @@
+//== KeyLock Password Manager
+:subtitle: User Guide
+:toc: left
+:toclevels: 3
+
+== {subtitle}
+
+== Introduction and Overview
+
+The KeyLock Password Manager is a professional-grade security tool
+designed to give you absolute control over your digital identity. Unlike
+other cloud-based managers that store your data on their servers,
+KeyLock is a local-first application where both the program and the
+encrypted database remain entirely under your jurisdiction.
+
+== The Importance of a Password Manager
+
+In the modern digital landscape, using unique, complex passwords for
+every account is the only defense against "credential stuffing" attacks.
+A password manager eliminates the need to memorize dozens of complex
+passwords, allowing you to use high-entropy passwords that are
+impossible to guess.
+
+== Multiple Databases
+
+KeyLock supports the creation of an unlimited number of SQLite
+databases. Although you can use a single database and incorporate
+Business, Personal, Notes and any other Category you create and use the
+Search box to filter in on a single Category. For users who prefer
+separate "Business" credentials from "Personal" credentials you may
+still create separate databases. Each database can have its own unique Master
+Password.
+
+== The KeyLock Benefit: Sovereign Control
+
+=== Decentralized Storage: 
+* You choose exactly where your database
+lives—whether on a local hard drive or your favorite Public cloud provider such as 
+Google Drive or Dropbox.
+
+=== Multi-Platform: 
+* By storing your database in public cloud services like *Dropbox,
+Google Drive, or OneDrive*, you can install KeyLock on multiple Windows
+machines such as your Desktop, Laptop or Work Computer and access your database vault from anywhere. 
+
+=== Zero-Knowledge Security:
+* The application never transmits your master
+password or unencrypted data over the internet. Encryption and
+decryption happen solely on your local machine.
+
+*  Because KeyLock uses *PBKDF2 key derivation* and *AES-authenticated
+Fernet encryption*, your Master Password is the _only_ key to the vault.
+If lost, the data is mathematically impossible to recover. We recommend
+using the "Password Hint" feature or keeping a physical copy of your
+master password in a safe or fireproof box.
+
+* KeyLock adheres to a strict *Zero-Knowledge* policy. Because the
+application does not have a "backdoor" and does not store your master
+password in any form, there is *no recovery process*. This is a
+deliberate security feature: if a recovery method existed for you, it
+would also exist for a hacker. You are the sole custodian of your data.
+
+[WARNING]
+====
+Losing your **Master Password** is permanent.
+
+* There is no "Forgot Password" link.
+* Our support team cannot reset it.
+* Your Master Password is the only way back in.
+* Write it down and store it somewhere safe.
+====
+
+== Security Architecture and Encryption
+
+* KeyLock is built on a "Hardened Security" model to ensure that even if
+your database file is stolen, the contents remain inaccessible.
+
+=== Encryption Standards
+** Fernet (AES-128/256):
+* KeyLock utilizes the cryptography.fernet
+library for symmetric encryption, which provides "authenticated
+encryption" that prevents tampering.
+
+** Key Derivation:
+* Your master password is never stored. Instead,
+KeyLock uses a PBKDF2 (Password-Based Key Derivation Function 2) with a
+unique 16-byte random *Salt* to derive the encryption key.
+
+** The Database Structure: 
+* The database is a SQLite file (.db) containing a vault table with the following 
+columns: *Catagory, Title, URL, Username,
+Password, Account, PIN & Notes.*
+* salt: The unique random value used to derive your key.
+* data: The encrypted JSON blob containing your passwords and recycle
+bin.
+* hint: An optional, unencrypted text string to help you remember your
+password.
+
+== Interface Navigation
+
+The interface is designed for high-efficiency security management,
+divided into four primary control zones: the Menu Bar, the Ribbon
+Toolbar, Status Bar and the Table view.
+
+image:./media/KeyLock_Main_Screen.png[./media/KeyLock_Main_Screen,width=624,height=352]
+
+== Detailed Menu Functionality
+
+=== Database Menu
+
+* *New Database (Ctrl{plus}N):* Initiates a secure wizard to create a
+fresh Database. This includes a mandatory security warning, master password
+setup, and optional hint creation.
+* *Open Database (Ctrl{plus}O):* Allows you to navigate to and select an
+existing .db file.
+* *Recent Databases:* Displays a list of up to 5 previously used databases
+for rapid switching.
+* *Save Database (Ctrl{plus}S):* Does a quick save of the open database.
+* *Save Database As (Ctrl{plus}Shift{plus}S):* Brings up a Explorer
+screen allowing you to save the current database utilizing a new
+database name. This also utilizes the same password from the current
+database. If needed, You can change the password with the menu Database
+++>++ Change Master Password.
+* *Close Database (Ctrl{plus}W):* Safely locks the current database and
+clears all data from the application's memory and returns the app to a
+locked state.
+* *Delete Database:* Brings up Explorer view allowing you to delete a
+database. To delete, you must enter the Master Password, confirm you
+want to delete the database and one final warning. Use caution, this
+database and its contents are deleted forever.
+* *Lock Database (Ctrl{plus}L):* Locks the current database and displays the Password entry screen.
+
+
+image:./media/Delete_DB_Password.png[./media/Delete_DB_Password,width=195,height=141]
+
+image:./media/Delete_DB_Confirm.png[./media/Delete_DB_Confirm,width=357,height=132]
+
+image:./media/Delete_DB_Final.png[./media/Delete_DB_Final,width=279,height=125]
+
+
+* *Import, Export, & Data Merging:* Support for CSV files to allow easy
+migration from other password managers or to create unencrypted backups
+(use with caution).
+
+** KeyLock allows for seamless migration while maintaining strict data
+integrity.
+
+* *Import Logic:* Supports CSV files.
+** *Automatic Data Mapping:* The app attempts to match columns like
+"Login" to "Username" and "Pass" to "Password" automatically.
+** *Data Merging:* When importing into an existing vault, you can choose
+to "Merge" (add new items) or "Overwrite".
+** *Duplicate Checking:* The system flags entries with identical Titles
+and Usernames to prevent clutter.
+
+image:./media/Import_Mapping.png[./media/Import_Mapping,width=395,height=375]
+
+* *Export Logic:* Allows you to export your data to an unencrypted CSV
+file for storing on USB drives or other storage. *Warning:* Exported
+files are not encrypted and should be stored securely or deleted
+immediately after use.
+** *Searchable HTML (Mobile Ready)*
+** *Standard CSV*
+** *Plain Text (.txt)*
+
+[WARNING]
+====
+Use Caution with **Export** functionality !!
+
+* Exports your database to an unencrypted HTML, CSV or txt file
+* Unencrtpted Export files should be stored safely 
+====
+
+* *Backup:* Brings up an Explorer window pre populating the backup
+filename as: database-name++_++backup++_++date++_++time. Backup files
+are stored as encrypted .enc files. It is highly recommended that you
+backup often. You will need to know your Master Password to Restore from
+backup.
+* *Restore From Backup:* Brings up an Explorer window showing encrypted
+(.enc) backup files available to restore. You will need to know your
+Master Password to Restore from backup.
+
+* *Exit Application (Ctrl{plus}Q):* Exits the KeyLock Password Manager application.
+
+=== Entries Menu
+
+* *New Record (Ctrl{plus}Shift{plus}N):* Opens a window to store a new
+account, including Title, Username, Password, URL, and Notes.
+Double-Clicking the "URL" field in Table or Record view will open your
+default browser to that site. The Notes section can store up to 256
+characters.
+* *Edit Record (Ctrl{plus}E):* Pressing this button opens the Entry Form
+for editing an existing record for such fields as Title, Username,
+Password, URL, and Notes. Double-Clicking the "URL" field in Table or
+Record view will open your default browser to that site. The Notes
+section can store up to 256 characters. 
+
+** You can also generate a secure hardened password using the Generate Password button.
+
+* *Delete Record (Del):* Deletes the current record selected in table
+view and places it into the KeyLock Recycle Bin.
+* *Copy User:* When pressed will copy the User field information from
+the selected or open record into the Clip-Board memory. It will remain
+in memory based on the adjustable setting in the Tools ++>++ Settings
+++>++ Enable clipboard auto-clear. Usually recommended to set this for
+15 seconds. For security best practices the clipboard will be cleared.
+
+
+** After pressing Copy User, User info is in Clipboard, go to site that you
+are logging into put your cursor in the User field and press Ctrl-V to
+paste your User.
+
+
+* *Copy Password:* When pressed will copy the Password from the selected
+or open record into the Clip-Board memory. It will remain in memory
+based on the adjustable setting in the Tools ++>++ Settings ++>++ Enable
+clipboard auto-clear. Usually recommended to set this for 15 seconds.
+For security best practices the clipboard will be cleared.
+
+** After pressing Copy Password, the Password info is in Clipboard, go to
+site that you are logging into put your cursor in the Password field and
+press Ctrl-V to paste your password.
+
+
+* *Show Password:* Passwords are masked however you can press Show
+Password and the highlighted record in table view or the open record
+view will reveal the password for that record.
+* *Undo Last Change (Ctrl{plus}Z):* Will undo your last change.
+
+=== Tools Menu
+
+* *The Password Generator (Ctrl{plus}G):* A robust utility to create high-security
+passwords or simply type and create your own password.
+
+** *Length Control:* Field to specify the Password length from (default
+16{plus}) 8 to 128 characters.
+** *Character Sets:* Toggle switches for Uppercase (A-Z), Lowercase
+(a-z), Numbers (0-9), and Special Symbols (!@++#++$).
+** *Entropy Calculation:* Displays a real-time "Strength" score as you
+adjust settings.
+
+
+image:./media/Password_Generator.png[./media/Password_Generator,width=412,height=387]
+
+
+* *Recycle Bin (Ctrl{plus}R):* When you delete a record, it is stored in the Recycle
+Bin providing you an opportunity to Delete Permanently or to Restore.
+
+
+image:./media/Recycle_Bin.png[./media/Recycle_Bin,width=389,height=327]
+
+
+* *Settings:* Includes preferences, such as database auto-lock and
+clipboard auto-clear timers, meeting security best practices. Setting to
+Launch KeyLock on computer startup, Open last database used, auto-save
+on close and remembering the KeyLock screen position and window size.
+
+
+image:./media/Settings.png[./media/Settings,width=511,height=307]
+
+
+=== Help Menu
+
+* *User Manual (F1):* An online version of the KeyLock Password Manager User
+Manual
+
+* *Check for Updates (Ctrl{plus}U):* This will display your current version and the latest version of the KeyLock Password Manager application available for download. 
+
+image:./media/Check_for_Updates.png[./media/Check_for_Updates,width=624,height=352]
+
+* *Keyboard Shortcuts*
+** *New Database (Ctrl{plus}N)*
+** *Open Database (Ctrl{plus}O)*
+** *Save Database (Ctrl{plus}S)*
+** *Save Database As (Ctrl{plus}Shift{plus}S)*
+** *Close Database (Ctrl{plus}W)*
+** *New Record (Ctrl{plus}Shift{plus}N)*
+** *Edit Record (Ctrl{plus}E)*
+** *Delete Record (Del)*
+** *Undo Last Change (Ctrl{plus}Z):*
+** *Search (Ctrl{plus}F)*
+** *Lock Database (Ctrl{plus}L)*
+** *Passwprd Generator (Ctrl{plus}G)*
+** *Open Recycle Bin (Ctrl{plus}R)*
+** *Exit Application (Ctrl{plus}Q)*
+** *Edit Selected Entry (Enter)*
+
+== Donate
+* Thank you for using KeyLock, if you are finding this program
+useful, please consider supporting its development by donating any
+amount that you are comfortable with. We appreciate your generosity…
+
+* Currently we offer the ability to take donations through Venmo and PayPal.
+
+** *Venmo Donation:* On your mobile device go to your Venmo application
+and search for *@JohnStone996*
+
+** *PayPal Donation:* Are easily done through this web-link:
+
+https://www.paypal.com/donate/?hosted_button_id=HM9NTSUVGEVMN[*https://www.paypal.com/donate/?hosted++_++button++_++id=HM9NTSUVGEVMN*]
+
+image:./media/PayPal_Donate.png[./media/PayPal_Donate,width=308,height=318]
+
+== About 
+* Shows the current Keylock Password Manager Version Number, Build Date, Copyright and GNU General Public License https://www.gnu.org/licenses/gpl-3.0.txt as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+image:./media/About.png[./media/About,width=624,height=352]
+
+== The Ribbon Toolbar & Search Functionality
+
+* Located directly below the menus, quick-action buttons are available to
+manage the currently selected record.
+
+** *New (Ctrl{plus}Shift{plus}N):* Pressing this button opens the Entry Form for entering a new
+record including Title, Username, Password, URL, and Notes.
+Double-Clicking the "URL" field in Table or Record view will open your
+default browser to that site. The Notes section can store up to 256
+characters.
+
+
+** You can also generate a secure hardened password using the Generate
+Password button.
+
+
+** *Edit (Ctrl{plus}E):* Pressing this button opens the Entry Form for editing an
+existing record for such fields as Title, Username, Password, URL, and
+Notes. Double-Clicking the "URL" field in Table or Record view will open
+your default browser to that site. The Notes section can store up to 256
+characters.
+
+
+** You can also generate a secure hardened password using the Generate
+Password button.
+
+
+** *Delete Record (Del):* Deletes the current record selected in table
+view and places it into the KeyLock Recycle Bin.
+
+** *Copy User:* When pressed will copy the User field information from
+the selected or open record into the Clip-Board memory. It will remain
+in memory based on the adjustable setting in the Tools ++>++ Settings
+++>++ Enable clipboard auto-clear. Usually recommended to set this for
+15 seconds. For security best practices the clipboard will be cleared.
+
+
+** After pressing Copy User, User info is in Clipboard, go to site that you
+are logging into put your cursor in the User field and press Ctrl-V to
+paste your User.
+
+
+** *Copy Password:* When pressed will copy the Password from the selected
+or open record into the Clip-Board memory. It will remain in memory
+based on the adjustable setting in the Tools ++>++ Settings ++>++ Enable
+clipboard auto-clear. Usually recommended to set this for 15 seconds.
+For security best practices the clipboard will be cleared.
+
+
+** After pressing Copy Password, the Password info is in Clipboard, go to
+site that you are logging into put your cursor in the Password field and
+press Ctrl-V to paste your password.
+
+
+** *Show Password:* Passwords are masked however you can press Show
+Password and the highlighted record in table view or the open record
+view will reveal the password for that record.
+
+
+** *Lock (Ctrl{plus}L):* A prominent button that immediately clears the memory and
+secures the vault. It also displays the Login screen for the Database
+Master Password as soon as Lock is pressed.
+
+image:./media/Login_Screen.png[./media/Login_Screen,width=624,height=352]
+
+
+** *Search Bar (Ctrl{plus}F):* A real-time filter located on the right of the ribbon.
+As you type, the table instantly hides non-matching entries based on the
+*Title*, *Username*, or *URL* fields.
+
+
+== The Lower Message Bar (Status Bar)
+
+* The left footer of the KeyLock application provides critical situational
+awareness:
+
+** *Database Path:* Displays the file and data path currently in use
+Database: Path++_++Database-Name.db
+** *Database Save:* Displays a message: *Database Saved!*
+** *Database Close:* Displays a message: *Database Closed.* Then
+displays: *No database loaded. Go to Database ++>++ Open to begin.*
+** *Backup Database:* If backup is successful, the message bar displays:
+Backup Saved with backup filename as:
+database-name++_++backup++_++date++_++time.enc
+** *Restore Database:* If restore is successful, the message bar
+displays: Restore successful
+database-name++_++backup++_++date++_++time.enc
+** *Caps Lock Warning:* A monitor that flashes red if *CAPS LOCK IS ON*,
+assisting in preventing login errors.
+** *Clipboard Auto-Clear:* When using the Copy User or Copy Password
+functionality, the program copies these to the clipboard memory so that
+you have time to paste them in your login website. The lower message bar
+Displays: *Copied! Clearing in 15s…* then displays: *Clipboard cleared
+for security.*
+** *Entry Count:* Shows the total number of records in your vault.
+

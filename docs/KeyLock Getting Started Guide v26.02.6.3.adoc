@@ -1,0 +1,117 @@
+= KeyLock Password Manager
+:subtitle: Getting Started User Guide
+:logo-img: image:media/Logo.png[Logo, 240, 240, align=left]
+:toc: left
+:toclevels: 3
+//:icons: font
+//:sectnums:
+
+{logo-img}
+
+== {subtitle}
+
+Version: v26.02.6.3
+
+== Why KeyLock? The "Local-First" Advantage
+
+If you're trying to decide on a Password Manager, ask yourself a critical question: *Do you truly trust your most sensitive information—banking, brokerage accounts, insurance records, Social Security numbers, and private notes—to a large private commercial password manager just waiting to be hacked?*
+
+Traditional password managers store millions of user vaults in centralized "honeypots." These companies are under constant, sophisticated attacks because a single breach offers a massive financial windfall for hackers. 
+
+**KeyLock changes the game:**
+
+* **The Needle in the Haystack:** By storing your data locally or in a public cloud of your choice (Google Drive, Dropbox, etc.), your vault is just one anonymous encrypted file among billions. 
+* **Zero Knowledge:** Because we don't hold your data, we cannot see your passwords—and neither can hackers.
+* **True Sovereignty:** Your data stays where you put it. To an outside observer, your database in a public cloud appears as an unrecognizable, encrypted file with contents unbeknownst to anyone.
+
+==  System Requirements & Installation
+
+=== Operating System Support
+KeyLock is optimized for modern 64-bit environments to ensure maximum performance of the AES-256 encryption engine.
+
+* **Windows 11** (64-bit)
+* **Windows 10** (64-bit, version 1809 or later)
+
+[NOTE]
+Legacy systems such as Windows 7 or 8.1 are not officially supported. For your security, KeyLock should only be run on operating systems currently receiving active security patches from Microsoft.
+
+=== Hardware Requirements
+The application is lightweight and designed to run efficiently in the background without impacting system performance.
+
+* **Memory (RAM):** 100 MB of available RAM (Minimum); 256 MB (Recommended).
+* **Disk Space:** ** **Application:** ~50 MB for the initial installation.
+** **Database:** Variable. Individual database files are extremely small; even a vault with thousands of entries typically requires less than 5 MB of space.
+
+=== Permissions & Access
+To maintain the "Local-First" integrity of your data, the following permissions are required:
+
+* **File System Access:** KeyLock requires read/write permissions for its installation directory and whichever directory you choose for your database files.
+* **Installer Privileges:** The Standard Installer requires **Administrative Privileges** to create the necessary directories in `C:\Program Files` and to register the application with Windows. 
+* **Standalone Permissions:** The Standalone version can be run with **Standard User** permissions, provided it is placed in a directory where the user already has write access (e.g., a folder on the Desktop or a personal Documents folder).
+=== Initial Download Options
+
+
+
+=== Installation Options
+
+* **Standard Installer:** Recommended for most users. The installer handles all directory creation, system shortcuts, and registry entries for a smooth Windows experience.
+* **Standalone Executable:** Designed for the experienced user who demands total control over where the program resides. This version does not use a formal installation process; you simply place the executable in your preferred directory.
+
+When running the installer, you will be prompted for:
+
+* **Installation Path:** The default is `C:\Program Files\KeyLock`, but you can specify any local directory.
+* **Startup Option:** Check this box to have KeyLock launch automatically when you sign into Windows.
+* **Desktop Icon:** Creates a KeyLock shortcut for quick access.
+
+
+
+[CAUTION]
+====
+**Windows Security Warning:** During installation, you may see a "Windows Protected Your PC" or a Blue Screen SmartScreen warning. This is a standard security measure for independent software. Click **"More Info"** and then **"Run Anyway"** to proceed.
+====
+
+=== Directory Architecture
+
+* **Program Files:** Stores the executable and necessary system assets.
+* **App Data:** Stores user configuration settings and local logs.
+* **Default Database Folder:** Typically created in your `Documents\KeyLock Databases` folder. This folder is the default location where your databases, backups and exports are stored. 
+
+== Database Setup
+
+=== Creating Your First Database
+
+Upon first launch, you will be prompted to create a new vault.
+
+1. **Select Location:** You can accept the default local folder or choose a custom path.
+2. **Storage Choice:** You can choose to store your database **locally** on your machine for maximum privacy, or in a **Public Cloud** directory (like your local Google Drive or Dropbox folder) for your own remote access.
+
+3. **Master Password:** Choose a strong, memorable password.
+
+[WARNING]
+====
+Losing your **Master Password** is permanent.
+
+* There is no "Forgot Password" link.
+* Our support team cannot reset it.
+* Your Master Password is the only way back in.
+* Write it down and store it somewhere safe.
+====
+
+== Migration: Importing Data
+
+If you are moving from a cloud-based manager, KeyLock makes the transition seamless.
+
+=== The Migration Process
+
+1. **Export:** Log into your current password manager and export your vault as a `.csv` file.
+2. **Import:** In KeyLock, go to `File > Import > CSV`.
+3. **Auto-Mapping:** KeyLock features an **Auto-Mapping** engine that recognizes headers from major password managers. It will attempt to automatically match your existing "Username," "Password," and "URL" fields to the KeyLock database structure.
+4. **Secure Cleanup:** Once the import is successful, **permanently delete** the plain-text CSV file from your computer.
+
+
+
+== Uninstallation
+
+If you need to remove KeyLock, use the Windows **Add or Remove Programs** utility.
+
+NOTE: Uninstalling the program does **not** delete your encrypted database files. This ensures your data remains safe and available should you choose to reinstall in the future.
