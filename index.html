@@ -127,27 +127,27 @@
         /* NEW MOBILE RESPONSIVE SECTION */
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
-                height: auto; /* Allows the nav to grow with the stacked content */
-                padding: 20px 5%;
-                text-align: center;
+                flex-direction: row; /* Keep Logo and Links on one line if possible */
+                flex-wrap: wrap;    /* Allow Links to move below Logo if screen is tiny */
+                height: auto; 
+                padding: 15px 5%;
+                justify-content: space-between; /* Pushes Logo left, Links right */
             }
 
             .logo-container img {
-                height: 60px; /* Slightly smaller logo for mobile height */
-                margin-bottom: 10px;
+                height: 80px; /* Restored to original size */
+                margin-bottom: 0;
             }
 
             .nav-links {
-                margin-top: 10px;
-                display: flex;
-                flex-wrap: wrap; /* Allows links to wrap to a second line if needed */
-                justify-content: center;
+                margin-top: 15px;
+                width: 100%; /* Forces links to a new line below the logo on small phones */
+                text-align: left; /* Aligns buttons to the left */
             }
 
             .nav-links a {
-                margin: 5px 10px; /* Consistent spacing */
-                font-size: 1.1rem; /* MATCH THIS to your other pages' font size */
+                margin: 5px 15px 5px 0; /* Space on the right of links */
+                font-size: 1.1rem;
                 display: inline-block;
             }
 
@@ -159,6 +159,7 @@
                 font-size: 1.1rem;
             }
 
+            /* This keeps your hero buttons stacked and spaced */
             .btn {
                 display: block; 
                 width: 100%;
