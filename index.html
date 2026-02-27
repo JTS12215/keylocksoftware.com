@@ -127,45 +127,54 @@
         /* NEW MOBILE RESPONSIVE SECTION */
         @media (max-width: 768px) {
             nav {
-                flex-direction: row; /* Force them to stay side-by-side */
+                flex-direction: row !important; /* Force side-by-side */
                 justify-content: space-between;
+                align-items: center;
                 height: auto;
                 padding: 10px 5%;
-                align-items: center; /* Keeps logo and text vertically centered */
+            }
+
+            .logo-container {
+                flex-shrink: 0; /* Prevents the logo from getting squeezed/shrunk */
             }
 
             .logo-container img {
-                height: 60px; /* Slightly smaller for mobile to fit on one line */
+                height: 70px; /* Matching the size seen on your download page */
                 width: auto;
+                display: block;
             }
 
             .nav-links {
                 margin-top: 0;
-                width: auto; /* Remove the 100% width so it doesn't drop down */
                 display: flex;
-                flex-wrap: wrap; 
+                flex-wrap: wrap;
                 justify-content: flex-end;
+                gap: 10px; /* Gives a small, consistent gap between links */
             }
 
             .nav-links a {
-                margin-left: 15px; /* Tighter spacing for mobile phones */
-                margin-right: 0;
-                font-size: 1.0rem; /* Slightly smaller to ensure fit on one line */
+                margin-left: 10px;
+                font-size: 1.05rem; /* Matches the visual weight of the Download page */
+                white-space: nowrap; /* Prevents single words from breaking */
+            }
+
+            /* HERO SECTION TWEAKS */
+            .hero {
+                padding: 60px 5%; /* Reduces excessive padding on mobile */
             }
 
             .hero h1 {
                 font-size: 2.2rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            /* Keep hero buttons stacked for easy thumb tapping */
+            /* Keeps your big blue buttons stacked correctly */
             .btn {
                 display: block; 
                 width: 100%;
-                margin: 10px 0;
+                margin: 10px 0 !important;
+            }
+            
+            .btn-outline {
                 margin-left: 0 !important;
             }
         }
